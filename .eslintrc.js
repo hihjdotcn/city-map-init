@@ -1,3 +1,8 @@
+/*
+ * @Description: 
+ * @LastEditors: lianghui
+ * @LastEditTime: 2022-01-27 10:22:41
+ */
 module.exports = {
   root: true,
   env: {
@@ -10,5 +15,7 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-undef": "off",
+    "no-unused-vars": "off",
   },
 };
