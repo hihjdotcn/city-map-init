@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @LastEditors: lianghui
- * @LastEditTime: 2022-01-27 10:43:18
+ * @LastEditTime: 2022-01-27 11:01:59
 -->
 <template>
   <div id="app">
@@ -32,20 +32,20 @@ export default {
       pointData: [
         {
           id: 2,
-          x: 100,
-          y: 100,
+          x: -1800,
+          y: -1800,
           pointType: "one",
         },
         {
           id: 3,
-          x: 300,
-          y: 300,
+          x: -2000,
+          y: -2500,
           pointType: "two",
         },
         {
           id: 4,
-          x: 600,
-          y: 600,
+          x: -3500,
+          y: -3500,
           pointType: "",
         },
       ],
@@ -57,7 +57,7 @@ export default {
       this.cmap = new CityGis.Bridge({
         id: "maps",
         // city-市级 18-区 大于两位数-街道
-        url: "http://10.81.71.51/citygis/areamap/WidgetPages/WidgetGIS.html",
+        url: "http://10.81.71.51/citygis/areamap/WidgetPages/WidgetGIS.html?code=04",
         onReady: function () {
           this.Invoke({
             ActionName: "goToPosition",
@@ -140,7 +140,7 @@ export default {
       if (this.picSize < 12) {
         this.picSize = 12;
       } else {
-        this.picSize -= 5;
+        this.picSize -= 15;
       }
       this.drawPoints(this.pointData);
       this.cmap.Invoke({ ActionName: "ZoomOut" }); // 缩小
@@ -148,7 +148,7 @@ export default {
     // 放大地图点位
     handleEnlarge() {
       if (this.picSize < 80) {
-        this.picSize += 5;
+        this.picSize += 15;
       }
       this.drawPoints(this.pointData);
       this.cmap.Invoke({ ActionName: "ZoomIn" }); // 放大
